@@ -1,6 +1,7 @@
 # Title
 
 ## Description
+This project is a smart chatbot designed to provide quick and accurate responses to user queries. It leverages advanced Natural Language Processing (NLP) and machine learning models to understand and respond to user inputs contextually. The chatbot is integrated with Azure Open AI services to enhance its capabilities and ensure secure and scalable deployment.
 
 ## Smart Chatbot Requirements
 
@@ -19,6 +20,7 @@
 - Ensure secure and scalable deployment using Azure services.
 
 ## Demo
+A live demo of the smart chatbot can be accessed at [Demo Link]. The demo showcases the chatbot's ability to understand and respond to various user queries, demonstrating its NLP and contextual response capabilities.
 
 ## Features
 
@@ -26,10 +28,26 @@
 - feature:2
 
 ## Requirement
+- Azure Open AI subscription
+- Python 3.8 or higher
+- Flask framework
+- Azure SDK for Python
 
 ## Usage
+1. Clone the repository: `git clone https://github.com/shinyay/demo-azure-openai-devday.git`
+2. Navigate to the project directory: `cd demo-azure-openai-devday`
+3. Install the required dependencies: `pip install -r requirements.txt`
+4. Run the application: `python app.py`
+5. Access the chatbot via the provided URL.
 
 ## Installation
+1. Ensure you have Python 3.8 or higher installed.
+2. Install Flask: `pip install flask`
+3. Install Azure SDK for Python: `pip install azure`
+4. Clone the repository: `git clone https://github.com/shinyay/demo-azure-openai-devday.git`
+5. Navigate to the project directory: `cd demo-azure-openai-devday`
+6. Install the required dependencies: `pip install -r requirements.txt`
+7. Run the application: `python app.py`
 
 ## References
 
