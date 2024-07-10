@@ -2,6 +2,22 @@
 
 ## Description
 
+## Smart Chatbot Requirements
+
+### User Stories
+- As a user, I want to interact with the chatbot to get quick responses to my queries.
+- As an admin, I want to monitor the chatbot's performance and improve its responses.
+
+### Features
+- Natural Language Processing (NLP) for understanding user queries.
+- Contextual responses based on user history.
+- Integration with external APIs for fetching real-time data.
+
+### Integration with Azure Open AI Services
+- Utilize Azure Open AI for advanced NLP capabilities.
+- Leverage Azure's machine learning models to improve chatbot accuracy.
+- Ensure secure and scalable deployment using Azure services.
+
 ## Demo
 
 ## Features
