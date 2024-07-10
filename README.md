@@ -13,6 +13,60 @@
 
 ## Usage
 
+### Running the Application Locally
+
+To run the application locally, follow these steps:
+
+1. **Set up the virtual environment**
+
+   Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   ```
+
+   Activate the virtual environment:
+   - On Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+   - On macOS and Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+2. **Install dependencies**
+
+   Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up the database**
+
+   Initialize the SQLite database:
+   ```bash
+   flask db init
+   flask db migrate -m "Initial migration."
+   flask db upgrade
+   ```
+
+4. **Run the Flask application**
+
+   Set the FLASK_APP environment variable:
+   - On Windows:
+     ```bash
+     set FLASK_APP=src/app.py
+     ```
+   - On macOS and Linux:
+     ```bash
+     export FLASK_APP=src/app.py
+     ```
+
+   Run the Flask application:
+   ```bash
+   flask run
+   ```
+
 ## Installation
 
 ### Setting up the virtual environment
