@@ -1,6 +1,9 @@
 from flask import Flask, redirect, url_for, session, render_template, request, jsonify
 from authlib.integrations.flask_client import OAuth
 from flask_sqlalchemy import SQLAlchemy
+from models import User
+from session_management import create_session, update_session, delete_session, is_session_active
+from error_handling import register_error_handlers
 
 app = Flask(__name__)
 app.secret_key = 'random_secret_key'
@@ -12,17 +15,19 @@ oauth = OAuth(app)
 
 # OAuth2 provider configuration
 oauth.register(
-    name='google',
-    client_id='YOUR_CLIENT_ID',
-    client_secret='YOUR_CLIENT_SECRET',
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
+    name='github',
+    client_id='YOUR_GITHUB_CLIENT_ID',
+    client_secret='YOUR_GITHUB_CLIENT_SECRET',
+    authorize_url='https://github.com/login/oauth/authorize',
     authorize_params=None,
-    access_token_url='https://accounts.google.com/o/oauth2/token',
+    access_token_url='https://github.com/login/oauth/access_token',
     access_token_params=None,
     refresh_token_url=None,
     redirect_uri='http://localhost:5000/callback',
-    client_kwargs={'scope': 'openid profile email'}
+    client_kwargs={'scope': 'user:email'}
 )
+
+register_error_handlers(app)
 
 @app.route('/')
 def home():
@@ -31,13 +36,23 @@ def home():
 @app.route('/login')
 def login():
     redirect_uri = url_for('authorize', _external=True)
-    return oauth.google.authorize_redirect(redirect_uri)
+    return oauth.github.authorize_redirect(redirect_uri)
 
 @app.route('/callback')
 def authorize():
-    token = oauth.google.authorize_access_token()
-    user = oauth.google.parse_id_token(token)
-    session['user'] = user
+    token = oauth.github.authorize_access_token()
+    user_info = oauth.github.get('user', token=token).json()
+    user = User.query.filter_by(username=user_info['login']).first()
+    if not user:
+        user = User(username=user_info['login'], email=user_info['email'])
+        db.session.add(user)
+        db.session.commit()
+    create_session(user.id)
+    return redirect('/')
+
+@app.route('/logout')
+def logout():
+    delete_session()
     return redirect('/')
 
 @app.route('/chat')
