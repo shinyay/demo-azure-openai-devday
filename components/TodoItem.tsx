@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
 interface TodoItemProps {
   todo: { id: number; text: string; completed: boolean };
-  onEdit: (id: number, newText: string) => void;
-  onDelete: (id: number) => void;
-  onToggle: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdit, onDelete, onToggle }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
+  const { editTodo, deleteTodo, toggleTodo } = useContext(TodoContext);
 
   const handleEdit = () => {
     if (isEditing) {
-      onEdit(todo.id, editText);
+      editTodo(todo.id, editText);
     }
     setIsEditing(!isEditing);
   };
 
   const handleToggle = () => {
-    onToggle(todo.id);
+    toggleTodo(todo.id);
+  };
+
+  const handleDelete = () => {
+    deleteTodo(todo.id);
   };
 
   return (
@@ -36,7 +39,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdit, onDelete, onToggle })
         <span>{todo.text}</span>
       )}
       <button onClick={handleEdit}>{isEditing ? 'Save' : 'Edit'}</button>
-      <button onClick={() => onDelete(todo.id)}>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </li>
   );
 };
