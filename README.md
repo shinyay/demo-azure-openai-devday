@@ -61,9 +61,9 @@ The chat interface is designed using Flask and is responsive and user-friendly. 
 ## Authentication Setup
 
 ### OAuth2 Integration
-1. **Choose OAuth2 Provider**: This project uses Google as the OAuth2 provider.
+1. **Choose OAuth2 Provider**: This project uses GitHub as the OAuth2 provider.
 2. **Set Up OAuth2 Provider**:
-   - Register the application with Google.
+   - Register the application with GitHub.
    - Obtain client ID and client secret.
 3. **Create Login Page**:
    - The login page is located at `templates/login.html`.
