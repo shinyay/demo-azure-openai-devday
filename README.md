@@ -31,7 +31,8 @@ A live demo of the smart chatbot can be accessed at [Demo Link]. The demo showca
 - Azure Open AI subscription
 - Python 3.8 or higher
 - Flask framework
-- Azure SDK for Python
+- Authlib for OAuth2 integration
+- Flask-SQLAlchemy for database interactions
 
 ## Usage
 1. Clone the repository: `git clone https://github.com/shinyay/demo-azure-openai-devday.git`
@@ -42,12 +43,10 @@ A live demo of the smart chatbot can be accessed at [Demo Link]. The demo showca
 
 ## Installation
 1. Ensure you have Python 3.8 or higher installed.
-2. Install Flask: `pip install flask`
-3. Install Azure SDK for Python: `pip install azure`
-4. Clone the repository: `git clone https://github.com/shinyay/demo-azure-openai-devday.git`
-5. Navigate to the project directory: `cd demo-azure-openai-devday`
-6. Install the required dependencies: `pip install -r requirements.txt`
-7. Run the application: `python app.py`
+2. Clone the repository: `git clone https://github.com/shinyay/demo-azure-openai-devday.git`
+3. Navigate to the project directory: `cd demo-azure-openai-devday`
+4. Install the required dependencies: `pip install -r requirements.txt`
+5. Run the application: `python app.py`
 
 ## Authentication Setup
 
