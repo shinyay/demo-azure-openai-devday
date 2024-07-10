@@ -49,6 +49,36 @@ A live demo of the smart chatbot can be accessed at [Demo Link]. The demo showca
 6. Install the required dependencies: `pip install -r requirements.txt`
 7. Run the application: `python app.py`
 
+## Authentication Setup
+
+### OAuth2 Integration
+1. **Choose OAuth2 Provider**: This project uses Google as the OAuth2 provider.
+2. **Set Up OAuth2 Provider**:
+   - Register the application with Google.
+   - Obtain client ID and client secret.
+3. **Create Login Page**:
+   - The login page is located at `templates/login.html`.
+4. **Implement OAuth2 Flow**:
+   - The OAuth2 flow is integrated in the backend using Flask.
+   - Relevant file paths: `app.py`.
+5. **Define User Model**:
+   - The user model is defined in `models.py`.
+   - Database schema and migrations are included.
+6. **Session Management**:
+   - Session management is implemented in `session_management.py`.
+7. **Error Handling**:
+   - Error handling for authentication failures and invalid sessions is added in `error_handling.py`.
+8. **Unit Tests**:
+   - Unit tests for authentication endpoints and user model validations are written in `tests/test_authentication.py`.
+
+### Running Unit Tests
+To run the unit tests for authentication:
+1. Ensure you have all dependencies installed.
+2. Run the tests using the following command:
+   ```
+   python -m unittest discover -s tests
+   ```
+
 ## References
 
 ## Licence
