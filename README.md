@@ -15,6 +15,47 @@
 
 ## Installation
 
+### Setting up the virtual environment
+
+1. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   ```
+
+2. Activate the virtual environment:
+   - On Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+   - On macOS and Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+### Installing dependencies
+
+1. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Running the Flask application
+
+1. Set the FLASK_APP environment variable:
+   - On Windows:
+     ```bash
+     set FLASK_APP=src/app.py
+     ```
+   - On macOS and Linux:
+     ```bash
+     export FLASK_APP=src/app.py
+     ```
+
+2. Run the Flask application:
+   ```bash
+   flask run
+   ```
+
 ## References
 
 ## Licence
