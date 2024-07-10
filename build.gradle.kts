@@ -5,7 +5,11 @@ plugins {
 	kotlin("plugin.spring") version "1.9.24"
 }
 
+<<<<<<< HEAD
 group = "com.microsoft.shinyay"
+=======
+group = "com.microsft.shinyay"
+>>>>>>> a91d782c10c5cd438f7f4dea5a7ebc2f4a1085e9
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -34,4 +38,8 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a91d782c10c5cd438f7f4dea5a7ebc2f4a1085e9
