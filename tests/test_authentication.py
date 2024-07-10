@@ -12,7 +12,7 @@ class AuthenticationTestCase(unittest.TestCase):
         db.create_all()
 
         # Create a test user
-        self.test_user = User(username='testuser', email='test@example.com', password_hash=generate_password_hash('password'))
+        self.test_user = User(username='testuser', email='test@example.com')
         db.session.add(self.test_user)
         db.session.commit()
 
@@ -33,7 +33,7 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertNotIn('user_id', session)
 
     def test_user_model_validation(self):
-        user = User(username='newuser', email='new@example.com', password_hash=generate_password_hash('newpassword'))
+        user = User(username='newuser', email='new@example.com')
         db.session.add(user)
         db.session.commit()
         retrieved_user = User.query.filter_by(username='newuser').first()
@@ -64,6 +64,18 @@ class AuthenticationTestCase(unittest.TestCase):
             response = self.app.get('/raise_session_error')
             self.assertEqual(response.status_code, 403)
             self.assertIn(b'Invalid session', response.data)
+
+    def test_successful_registration(self):
+        response = self.app.post('/register/github', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Welcome to the Home Page', response.data)
+        self.assertIn('user_id', session)
+
+    def test_failed_registration(self):
+        response = self.app.post('/register/github', follow_redirects=True)
+        self.assertEqual(response.status_code, 401)
+        self.assertIn(b'Authentication failed', response.data)
+        self.assertNotIn('user_id', session)
 
 if __name__ == '__main__':
     unittest.main()

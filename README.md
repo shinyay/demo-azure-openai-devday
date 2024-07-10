@@ -67,17 +67,19 @@ The chat interface is designed using Flask and is responsive and user-friendly. 
    - Obtain client ID and client secret.
 3. **Create Login Page**:
    - The login page is located at `templates/login.html`.
-4. **Implement OAuth2 Flow**:
+4. **Create Registration Page**:
+   - The registration page is located at `templates/register.html`.
+5. **Implement OAuth2 Flow**:
    - The OAuth2 flow is integrated in the backend using Flask.
    - Relevant file paths: `app.py`.
-5. **Define User Model**:
+6. **Define User Model**:
    - The user model is defined in `models.py`.
    - Database schema and migrations are included.
-6. **Session Management**:
+7. **Session Management**:
    - Session management is implemented in `session_management.py`.
-7. **Error Handling**:
+8. **Error Handling**:
    - Error handling for authentication failures and invalid sessions is added in `error_handling.py`.
-8. **Unit Tests**:
+9. **Unit Tests**:
    - Unit tests for authentication endpoints and user model validations are written in `tests/test_authentication.py`.
 
 ### Running Unit Tests

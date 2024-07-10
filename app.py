@@ -38,6 +38,11 @@ def login():
     redirect_uri = url_for('authorize', _external=True)
     return oauth.github.authorize_redirect(redirect_uri)
 
+@app.route('/register')
+def register():
+    redirect_uri = url_for('authorize', _external=True, registration=True)
+    return oauth.github.authorize_redirect(redirect_uri)
+
 @app.route('/callback')
 def authorize():
     token = oauth.github.authorize_access_token()
