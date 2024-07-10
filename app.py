@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session
+from flask import Flask, redirect, url_for, session, render_template, request, jsonify
 from authlib.integrations.flask_client import OAuth
 from flask_sqlalchemy import SQLAlchemy
 
@@ -39,6 +39,17 @@ def authorize():
     user = oauth.google.parse_id_token(token)
     session['user'] = user
     return redirect('/')
+
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+@app.route('/chat', methods=['POST'])
+def chat_post():
+    user_input = request.form['user_input']
+    # Mock response from generative AI
+    ai_response = f"Mock response to '{user_input}'"
+    return jsonify({'user_input': user_input, 'ai_response': ai_response})
 
 if __name__ == '__main__':
     app.run(debug=True)

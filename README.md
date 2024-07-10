@@ -13,6 +13,8 @@ This project is a smart chatbot designed to provide quick and accurate responses
 - Natural Language Processing (NLP) for understanding user queries.
 - Contextual responses based on user history.
 - Integration with external APIs for fetching real-time data.
+- Chat interface designed using Flask, responsive and user-friendly.
+- Mock chat functionality using generative AI.
 
 ### Integration with Azure Open AI Services
 - Utilize Azure Open AI for advanced NLP capabilities.
@@ -26,6 +28,14 @@ A live demo of the smart chatbot can be accessed at [Demo Link]. The demo showca
 
 - feature:1
 - feature:2
+
+## Chat Interface
+The chat interface is designed using Flask and is responsive and user-friendly. It includes a form for user input and a display area for chat messages. The chat functionality is currently mocked using generative AI.
+
+### Accessing the Chat Interface
+1. Run the application: `python app.py`
+2. Access the chat interface via the URL: `http://localhost:5000/chat`
+3. Type your message in the input field and click "Send" to interact with the mock chat functionality.
 
 ## Requirement
 - Azure Open AI subscription
